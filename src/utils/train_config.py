@@ -67,7 +67,10 @@ def config():
     parser.add_argument('--crop_size', type=int, default=32, help='The size of image.')
     parser.add_argument('--aug', type=str, default='resize', help='The size of image.')
 
-    parser.add_argument('--display', type=int, default=1, help='display interval')
+    parser.add_argument('--display', type=int, default=0, help='display or not')
+    parser.add_argument('--display_iter', type=int, default=3, help='display interval')
+    parser.add_argument('--img_channel', type=int, default=3, help='channels of training image')
+    parser.add_argument('--dcgan', type=str, default='mnist', help='channels of training image')
     args = parser.parse_args()
     if args.save is None:
         args.save = f'../../temp_run'

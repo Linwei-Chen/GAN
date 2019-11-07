@@ -41,7 +41,8 @@ def get_transform(args):
         transform_list.append(transforms.RandomCrop(args.crop_size, padding=4))
         pass
     # HFlip:
-    transform_list.append(transforms.RandomHorizontalFlip())
+    if 'hflip' in aug:
+        transform_list.append(transforms.RandomHorizontalFlip())
 
     # ToTensor
     transform_list.append(transforms.ToTensor())

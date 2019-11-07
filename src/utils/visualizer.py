@@ -20,7 +20,6 @@ class Visualizer:
         self.wins = {k: None for k in keys}
 
     def display(self, image, key):
-
         n_images = len(image) if isinstance(image, (list, tuple)) else 1
 
         if self.wins[key] is None:
@@ -69,3 +68,11 @@ class Visualizer:
                     canvas.draw()
                 canvas.start_event_loop(interval)
                 return
+
+    @staticmethod
+    def on():
+        plt.ion()
+
+
+if __name__ == '__main__':
+    Visualizer.on()
