@@ -105,7 +105,7 @@ class Logger:
                                            ylabel=key, xlabel='iteration')
 
     @staticmethod
-    def save_training_pic(data, path, name, ylabel, xlabel, smooth=None):
+    def old_save_training_pic(data, path, name, ylabel, xlabel, smooth=None):
         import matplotlib
         matplotlib.use('Agg')
         import matplotlib.pyplot as plt
@@ -137,6 +137,34 @@ class Logger:
         plt.cla()
         plt.clf()
         plt.close('all')
+
+    @staticmethod
+    def save_training_pic(data, path, name, ylabel, xlabel, smooth=None):
+        data = {ylabel:data}
+
+        import matplotlib.pyplot as plt
+        win = plt.subplots()
+        fig, ax = win
+        ax.cla()
+
+        keys = [ylabel]
+        for key in data:
+            keys.append(key)
+            data = data[key]
+            ax.plot(range(len(data)), data, marker='.')
+
+        ax.legend(keys, loc='upper right')
+        # ax.set_title(name)
+        ax.set(xlabel=xlabel, ylabel=ylabel,
+               title='{} {}'.format(name, ylabel))
+        ax.grid()
+        plt.draw()
+        # save figure
+        fig.savefig(os.path.join(path + '/{}_{}.png'.format(name, ylabel)), dpi=330)
+
+        # save data as csv
+        # df = pd.DataFrame.from_dict(data)
+        # df.to_csv(os.path.join(save_dir, self.title + '.csv'))
 
     @staticmethod
     def create_dir(dir_path):
@@ -330,5 +358,6 @@ def from_cpu_to_multi_gpu(model_name, n_calss, load_path):
 
 
 if __name__ == '__main__':
-    _test_logger_load()
+    # _test_logger_load()
+    # Logger.save_training_pic(range(100), './', '1', '2', '3',)
     pass
