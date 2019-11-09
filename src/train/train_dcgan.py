@@ -168,4 +168,4 @@ for epoch in range(epoch_start, args.epochs):
     logger.log(key='D_fake_loss', data=float(mean(D_fake_score_list)), show=True)
     logger.log(key='G_train_loss', data=float(mean(G_train_loss_list)), show=True)
     logger.save_log()
-    # logger.visualize()
+    logger.visualize()
