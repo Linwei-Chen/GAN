@@ -1,3 +1,6 @@
+__author__ = "charles"
+__email__ = "charleschen2013@163.com"
+
 from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision import transforms
@@ -14,6 +17,9 @@ from torchvision import transforms as T
 import torch
 import math
 import numbers
+from numpy.random import shuffle
+import os
+from torch.utils.data import Dataset
 
 _pil_interpolation_to_str = {
     Image.NEAREST: 'PIL.Image.NEAREST',
@@ -42,6 +48,41 @@ def get_image_dataset(args, train=True):
         train_loader = DataLoader(train_dataset, batch_size=1, shuffle=True,
                                   num_workers=args.prefetch, pin_memory=False, drop_last=True)
         return train_loader
+
+
+def get_dataloader_from_dir(args):
+    image_dataset = Images(args.img_dir, transforms.Compose([
+        StrideAlign(),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=MEAN, std=STD)
+    ]))
+    image_loader = DataLoader(image_dataset, batch_size=1, shuffle=False,
+                              num_workers=args.prefetch, pin_memory=False, drop_last=True)
+    return image_loader
+
+
+def from_dir_get_imgs_list(test_img_dir, only_root=False, use_shuffle: bool = False):
+    r"""
+
+    :param test_img_dir: str of img dir
+    :param use_shuffle: use random.shuffle to shuffle the list or not
+    :return: list of img_path
+
+    """
+
+    res = []
+    file_format = ['jpg', 'png', 'jpeg', 'gif', 'tiff']
+    for root, dirs, files in os.walk(test_img_dir, topdown=True):
+        if only_root and test_img_dir != root:
+            continue
+        print(root, dirs, files)
+        files = [i for i in files if any([j in i for j in file_format])]
+        if use_shuffle:
+            shuffle(files)
+        for file in files:
+            file_path = os.path.join(root, file)
+            res.append(file_path)
+    return res
 
 
 def get_transform(args):
@@ -91,6 +132,22 @@ def get_transform(args):
     val_transform = transforms.Compose(val_transform_list)
 
     return train_transform, val_transform
+
+
+class Images(Dataset):
+    def __init__(self, root, transform=None):
+        self.imgs = from_dir_get_imgs_list(root)
+        self.transform = transform
+        pass
+
+    def __getitem__(self, index):
+        img = Image.open(self.imgs[index]).convert('RGB')
+        if self.transform is not None:
+            img = self.transform(img)
+        return img, self.imgs[index]
+
+    def __len__(self):
+        return len(self.imgs)
 
 
 class StrideAlign(object):

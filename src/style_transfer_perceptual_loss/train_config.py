@@ -1,14 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import division
-
-""" 
-Trains a ResNeXt Model on Cifar10 and Cifar 100. Implementation as defined in:
-Xie, S., Girshick, R., Dollár, P., Tu, Z., & He, K. (2016). 
-Aggregated residual transformations for deep neural networks. 
-arXiv preprint arXiv:1611.05431.
-
-"""
-
 __author__ = "charles"
 __email__ = "charleschen2013@163.com"
 
@@ -28,8 +18,9 @@ def config():
     parser = argparse.ArgumentParser(description='Trains GAN on CIFAR',
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     # Positional arguments
-    parser.add_argument('--style_image', type=str, default='./style_imgs/sea.png',
+    parser.add_argument('--style_image', type=str, default='./style_imgs/TheStarryNight.jpg',
                         help='targe style image')
+    parser.add_argument('--img_dir', type=str, default='./style_imgs/sea.png', help='image to be transferred')
     parser.add_argument('--image_dataset', type=str, default='/Users/chenlinwei/dataset/SBD/benchmark_RELEASE/dataset/',
                         help='Root for the Cifar dataset.')
     # Optimization options
@@ -64,10 +55,11 @@ def config():
     parser.add_argument('--aug', type=str, default='crop', help='The size of image.')
 
     parser.add_argument('--display', type=int, default=0, help='display or not')
-    parser.add_argument('--content_layer', type=int, default=2, help='display or not')
+    parser.add_argument('--content_layer', type=int, default=2,
+                        help='choose No.content_layer of vgg layer for content loss')
     args = parser.parse_args()
     if args.save is None:
-        args.save = f'../../temp_run'
+        args.save = f'../../transfer_model'
     if args.log is None:
         args.log = args.save
     args.scheduler = f'{args.optimizer}_{args.scheduler}'

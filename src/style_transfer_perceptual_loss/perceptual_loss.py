@@ -1,3 +1,6 @@
+__author__ = "charles"
+__email__ = "charleschen2013@163.com"
+
 import torch
 import torch.nn as nn
 from torchvision import models
@@ -83,6 +86,8 @@ class PerceptualLoss:
 
         L_pixel = self.mse(y_hat, x)
 
+        # calculate total variation regularization (anisotropic version)
+        # https://www.wikiwand.com/en/Total_variation_denoising
         diff_i = torch.sum(torch.abs(y_hat[:, :, :, 1:] - y_hat[:, :, :, :-1]))
         diff_j = torch.sum(torch.abs(y_hat[:, :, 1:, :] - y_hat[:, :, :-1, :]))
         L_tv = (diff_i + diff_j) / float(c * h * w)

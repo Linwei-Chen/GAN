@@ -1,3 +1,6 @@
+__author__ = "charles"
+__email__ = "charleschen2013@163.com"
+
 import torch
 from PIL import Image
 from torch.autograd import Variable

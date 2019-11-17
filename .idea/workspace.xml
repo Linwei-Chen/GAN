@@ -2,42 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98439897-3ac5-4216-a0d0-946386631e3b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/reference/StyleTransfer" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reference/pix2pixHD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/cls_dataset/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/sbd/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/sbd/sbd_instance_segmentation_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/sbd/sbd_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/voc/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/voc/voc_bbox_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/voc/voc_instance_segmentation_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/voc/voc_semantic_segmentation_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/voc/voc_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/erfnet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_folder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/network.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/perceptual_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/style_imgs/TheStarryNight.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/style_imgs/mosaic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/style_imgs/sea.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/style_imgs/udnie.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_style_transfer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_transfer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference/StyleTransfer/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/reference/StyleTransfer/network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference/StyleTransfer/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/reference/StyleTransfer/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference/pix2pixHD/models/networks.py" beforeDir="false" afterPath="$PROJECT_DIR$/reference/pix2pixHD/models/networks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference/pix2pixHD/models/pix2pixHD_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/reference/pix2pixHD/models/pix2pixHD_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataset/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataset/cifar.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/cls_dataset/cifar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataset/mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/cls_dataset/mnist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataset/transforms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/cls_dataset/transforms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/train/train_dcgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/train/train_dcgan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/train_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/train_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_folder.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_folder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/network.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/perceptual_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/perceptual_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_style_transfer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_style_transfer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +24,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_style_transfer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1356">
-              <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+            <state relative-caret-position="472">
+              <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+              <folding>
+                <element signature="e#61#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_transfer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="41" column="6" lean-forward="true" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
               <folding>
                 <element signature="e#61#87#0" expanded="true" />
               </folding>
@@ -62,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+            <state relative-caret-position="630">
+              <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -72,28 +58,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/visualizer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="56" column="18" lean-forward="true" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+        <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="225">
+                <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-46">
+              <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+              <folding>
+                <element signature="e#150#165#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/perceptual_loss.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+            <state relative-caret-position="663">
+              <caret line="39" column="22" selection-end-line="94" selection-end-column="48" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -104,10 +96,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="118" column="28" lean-forward="true" selection-start-line="118" selection-start-column="28" selection-end-line="118" selection-end-column="28" />
+            <state relative-caret-position="318">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#62#101#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_folder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1746">
-              <caret line="116" column="12" selection-start-line="116" selection-start-column="12" selection-end-line="116" selection-end-column="12" />
+            <state relative-caret-position="411">
+              <caret line="42" column="28" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="28" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -128,34 +120,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reference/StyleTransfer/style.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2567">
-              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+            <state relative-caret-position="784">
+              <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reference/StyleTransfer/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/network.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="877">
-              <caret line="120" column="27" selection-start-line="120" selection-start-column="27" selection-end-line="120" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,7 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sche</find>
       <find>scheduler</find>
       <find>batch_size</find>
       <find>sig</find>
@@ -200,6 +167,7 @@
       <find>accimage_loader</find>
       <find>default_loader</find>
       <find>transform</find>
+      <find>make_dataset</find>
       <find>target</find>
       <find>vis</find>
     </findStrings>
@@ -240,13 +208,15 @@
         <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/vgg.py" />
         <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/perceptual.py" />
         <option value="$PROJECT_DIR$/src/utils/visualizer.py" />
-        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/network.py" />
         <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_folder.py" />
-        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/utils.py" />
-        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_dataset.py" />
-        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_style_transfer.py" />
-        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_config.py" />
+        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/network.py" />
         <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/perceptual_loss.py" />
+        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/utils.py" />
+        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_style_transfer.py" />
+        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_transfer.py" />
+        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_dataset.py" />
+        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/README.md" />
+        <option value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_config.py" />
       </list>
     </option>
   </component>
@@ -328,13 +298,6 @@
               <item name="20191107GAN" type="b2602c69:ProjectViewProjectNode" />
               <item name="20191107GAN" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="style_transfer_perceptual_loss" type="462c0819:PsiDirectoryNode" />
-              <item name="style_imgs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="20191107GAN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="20191107GAN" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="train" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -365,6 +328,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/style_transfer_perceptual_loss" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/train/style_transfer_perceptual_loss" />
@@ -390,28 +354,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.image_dataset">
-    <configuration name="erfnet" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="20191107GAN" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/model" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/erfnet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.image_transfer">
     <configuration name="image_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="20191107GAN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -426,6 +369,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_dataset.py" />
       <option name="PARAMETERS" value="--aug resize" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="image_transfer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="20191107GAN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/style_transfer_perceptual_loss" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_transfer.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -497,19 +461,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.erfnet" />
       <item itemvalue="Python.network" />
       <item itemvalue="Python.train_style_transfer" />
       <item itemvalue="Python.image_dataset" />
       <item itemvalue="Python.network (1)" />
+      <item itemvalue="Python.image_transfer" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.image_transfer" />
         <item itemvalue="Python.image_dataset" />
         <item itemvalue="Python.network (1)" />
         <item itemvalue="Python.train_style_transfer" />
         <item itemvalue="Python.network" />
-        <item itemvalue="Python.erfnet" />
       </list>
     </recent_temporary>
   </component>
@@ -545,14 +509,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573283436763</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=" ...">
+      <created>1573968331756</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573968331756</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1080" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.181439" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26016685" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" />
@@ -568,7 +539,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Run" order="3" visible="true" weight="0.18925965" />
+      <window_info anchor="right" id="Run" order="3" visible="true" weight="0.14285715" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -576,17 +547,6 @@
     <option name="LAST_COMMIT_MESSAGE" value=" ..." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/utils/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/cDCGAN_MNIST.py" />
-    <entry file="file://$PROJECT_DIR$/src/model/_cDCGAN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/_.png" />
     <entry file="file://$PROJECT_DIR$/src/utils/1_2.png" />
     <entry file="file://$PROJECT_DIR$/src/model/cDCGAN.py">
@@ -783,13 +743,6 @@
     <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/logger.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="34" column="16" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/train/train_dcgan.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="617">
@@ -841,26 +794,6 @@
     <entry file="file://$PROJECT_DIR$/reference/StyleTransfer/style_imgs/udnie.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/network.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="877">
-          <caret line="120" column="27" selection-start-line="120" selection-start-column="27" selection-end-line="120" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reference/StyleTransfer/style.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2567">
-          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reference/StyleTransfer/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -871,10 +804,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        <state relative-caret-position="630">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -883,18 +833,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_folder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1746">
-          <caret line="116" column="12" selection-start-line="116" selection-start-column="12" selection-end-line="116" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="118" column="28" lean-forward="true" selection-start-line="118" selection-start-column="28" selection-end-line="118" selection-end-column="28" />
+        <state relative-caret-position="411">
+          <caret line="42" column="28" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="28" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -903,8 +843,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_style_transfer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1356">
-          <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+        <state relative-caret-position="472">
+          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+          <folding>
+            <element signature="e#61#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/style_imgs/TheStarryNight.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/perceptual_loss.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="22" selection-end-line="94" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="225">
+            <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reference/StyleTransfer/style.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="784">
+          <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#62#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_transfer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="41" column="6" lean-forward="true" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
           <folding>
             <element signature="e#61#87#0" expanded="true" />
           </folding>
@@ -913,17 +906,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="56" column="18" lean-forward="true" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/style_transfer_perceptual_loss/perceptual_loss.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+        <state relative-caret-position="-46">
+          <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#150#165#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,3 +1,6 @@
+__author__ = "charles"
+__email__ = "charleschen2013@163.com"
+
 import torch
 import torch.nn as nn
 

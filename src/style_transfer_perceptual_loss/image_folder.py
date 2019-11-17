@@ -1,3 +1,6 @@
+__author__ = "charles"
+__email__ = "charleschen2013@163.com"
+
 from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision import transforms

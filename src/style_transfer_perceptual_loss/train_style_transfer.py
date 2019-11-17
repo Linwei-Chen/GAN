@@ -34,7 +34,7 @@ if __name__ == '__main__':
     args = config()
     visualizer = Visualizer(keys=['img'])
     style_name = osp.split(args.style_image)[-1].split('.')[0]
-    logger = Logger(save_path=args.save, json_name='record')
+    logger = Logger(save_path=args.save, json_name=f'{style_name}')
     model_saver = ModelSaver(save_path=args.save, name_list=[
         f'{style_name}',
         f'{style_name}_{args.optimizer}',
