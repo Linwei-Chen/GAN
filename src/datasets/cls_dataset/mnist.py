@@ -1,18 +1,10 @@
 __author__ = "charles"
 __email__ = "charleschen2013@163.com"
 
-import argparse
 import os
-import torch
-import torch.nn.functional as F
 import torchvision.datasets as dset
 import torchvision.transforms as transforms
-import time
-from utils.logger import ModelSaver, Logger
-from tqdm import tqdm
-from torch import optim
 from torch.utils.data import DataLoader
-from PIL import Image
 
 
 class ToRGB:
@@ -24,7 +16,7 @@ class ToRGB:
 
 
 def get_mnist_data_set(args, train=True):
-    from dataset.transforms import get_transform
+    from datasets.cls_dataset.transforms import get_transform
 
     # Init dataset
     if not os.path.isdir(args.cifar_10_data_path):

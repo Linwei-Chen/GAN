@@ -29,6 +29,7 @@ class Logger:
             with open(self.json_path, 'a') as f:
                 json.dump({}, f)
         self.state = json.load(open(self.json_path, 'r'))
+        self.win = {}
         # if 'max' not in self.state: self.state['max'] = {}
 
     def get_data(self, key):
@@ -138,13 +139,13 @@ class Logger:
         plt.clf()
         plt.close('all')
 
-    @staticmethod
-    def save_training_pic(data, path, name, ylabel, xlabel, smooth=None):
+    def save_training_pic(self, data, path, name, ylabel, xlabel, smooth=None):
         data = {ylabel:data}
 
         import matplotlib.pyplot as plt
-        win = plt.subplots()
-        fig, ax = win
+        if ylabel not in self.win:
+            self.win[ylabel] = plt.subplots()
+        fig, ax = self.win[ylabel]
         ax.cla()
 
         keys = [ylabel]
@@ -161,6 +162,8 @@ class Logger:
         plt.draw()
         # save figure
         fig.savefig(os.path.join(path + '/{}_{}.png'.format(name, ylabel)), dpi=330)
+        # from utils.visualizer import Visualizer
+        # Visualizer.mypause(0.001)
 
         # save data as csv
         # df = pd.DataFrame.from_dict(data)

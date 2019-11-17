@@ -6,21 +6,15 @@ import sys
 sys.path.append(osp.join(sys.path[0], '../'))
 sys.path.append(osp.join(sys.path[0], '../../'))
 import time
-import matplotlib.pyplot as plt
-import itertools
-import pickle
-import imageio
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
 from model.cDCGAN import Generator, Discriminator
 from utils.train_config import config
 from utils.logger import Logger, ModelSaver
 from utils.train_utils import model_accelerate, get_device, mean
-from dataset import get_cifar_10_data_set, get_mnist_data_set
+from datasets import get_cifar_10_data_set, get_mnist_data_set
 from utils.visualizer import Visualizer
-from torchvision import transforms
 from utils.train_utils import get_lr
 from tqdm import tqdm
 

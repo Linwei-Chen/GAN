@@ -2,6 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GcGAN" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/reference/StyleTransfer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/reference/pix2pixHD" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/reference/pytorch-MNIST-CelebA-cGAN-cDCGAN" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/pytorch-MNIST-CelebA-cGAN-cDCGAN" vcs="Git" />
   </component>

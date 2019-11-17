@@ -1,2 +1,0 @@
-from dataset.cifar import get_cifar_10_data_set
-from dataset.mnist import get_mnist_data_set
