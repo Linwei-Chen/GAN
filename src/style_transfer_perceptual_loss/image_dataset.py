@@ -61,7 +61,7 @@ def get_dataloader_from_dir(args):
     return image_loader
 
 
-def from_dir_get_imgs_list(test_img_dir, only_root=False, use_shuffle: bool = False):
+def from_dir_get_imgs_list(test_img_dir, only_root=True, use_shuffle: bool = False):
     r"""
 
     :param test_img_dir: str of img dir
@@ -76,7 +76,7 @@ def from_dir_get_imgs_list(test_img_dir, only_root=False, use_shuffle: bool = Fa
         if only_root and test_img_dir != root:
             continue
         print(root, dirs, files)
-        files = [i for i in files if any([j in i for j in file_format])]
+        files = [i for i in files if any([j in i.lower() for j in file_format])]
         if use_shuffle:
             shuffle(files)
         for file in files:

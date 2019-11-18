@@ -21,6 +21,9 @@ def config():
     parser.add_argument('--style_image', type=str, default='./style_imgs/TheStarryNight.jpg',
                         help='targe style image')
     parser.add_argument('--img_dir', type=str, default='./style_imgs/sea.png', help='image to be transferred')
+    parser.add_argument('--style', type=str, default='TheStarryNight',
+                        choices=['TheStarryNight', 'horse', 'flower', 'flowers'],
+                        help='pre_trained built in style')
     parser.add_argument('--image_dataset', type=str, default='/Users/chenlinwei/dataset/SBD/benchmark_RELEASE/dataset/',
                         help='Root for the Cifar dataset.')
     # Optimization options

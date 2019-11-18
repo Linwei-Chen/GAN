@@ -34,6 +34,7 @@ if __name__ == '__main__':
     args = config()
     visualizer = Visualizer(keys=['img'])
     style_name = osp.split(args.style_image)[-1].split('.')[0]
+    # style_name = osp.split(args.style_image)[-1].split('.')[0]
     logger = Logger(save_path=args.save, json_name=f'{style_name}')
     model_saver = ModelSaver(save_path=args.save, name_list=[
         f'{style_name}',
@@ -53,18 +54,19 @@ if __name__ == '__main__':
 
     ####
     data_loader = get_dataloader_from_dir(args)
+    data_loader = tqdm(data_loader)
     model.eval()
     with torch.no_grad():
-        counter = 10
+        # counter = 10
         for i, (imgs, path) in enumerate(data_loader):
             imgs = imgs.to(device)
-            counter -= 1
-            if counter < 0:
-                break
+            # counter -= 1
+            # if counter < 0:
+            #     break
             y_hat = model(imgs)
             for index in range(y_hat.size(0)):
                 # data = torch.cat([y_hat[index], imgs[index]], dim=2)
                 data = y_hat[index]
-                transferred_image_name = path.split('.')[0]
+                transferred_image_name = path[0].split('.')[0]
                 save_image(filename=f'{transferred_image_name}_{i}.jpg', data=data.cpu())
     ####
