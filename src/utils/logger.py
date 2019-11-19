@@ -6,6 +6,7 @@ import os.path as osp
 import json
 import torch
 from torch import nn
+import pandas as pd
 
 """
 Logger is built to log the information during the model train like loss, accuracy
@@ -19,17 +20,25 @@ class Logger:
     Build for logging the data like losss, accuracy etc during the training
     """
 
-    def __init__(self, save_path, json_name):
+    def __init__(self, save_path, json_name, use_csv=True):
         self.create_dir(save_path)
         self.save_path = save_path
         self.json_name = json_name
         self.json_path = osp.join(save_path, json_name + '.json')
+        self.csv_path = osp.join(save_path, json_name + '.csv')
+
         # if .json file not exist create one
         if not osp.exists(self.json_path):
             with open(self.json_path, 'a') as f:
                 json.dump({}, f)
+
         self.state = json.load(open(self.json_path, 'r'))
         self.win = {}
+
+        if not osp.exists(self.csv_path):
+            df = pd.DataFrame.from_dict(self.state)
+            df.to_csv(self.csv_path)
+
         # if 'max' not in self.state: self.state['max'] = {}
 
     def get_data(self, key):
@@ -66,6 +75,10 @@ class Logger:
             print(f'===> log key:{key} -> data:{data}')
 
     def save_log(self):
+        # save data as csv
+        df = pd.DataFrame.from_dict(self.state)
+        df.to_csv(self.csv_path)
+
         with open(self.json_path, 'w') as f:
             json.dump(self.state, f)
             print('*** Save log safely!')
@@ -140,7 +153,7 @@ class Logger:
         plt.close('all')
 
     def save_training_pic(self, data, path, name, ylabel, xlabel, smooth=None):
-        data = {ylabel:data}
+        data = {ylabel: data}
 
         import matplotlib.pyplot as plt
         if ylabel not in self.win:
@@ -363,4 +376,8 @@ def from_cpu_to_multi_gpu(model_name, n_calss, load_path):
 if __name__ == '__main__':
     # _test_logger_load()
     # Logger.save_training_pic(range(100), './', '1', '2', '3',)
+    logger = Logger(save_path='./', json_name='recorder')
+    logger.log(key='none', data=1)
+    logger.log(key='none2', data=2)
+    logger.save_log()
     pass

@@ -18,16 +18,16 @@ from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision import transforms
 
-from src.style_transfer_perceptual_loss.utils import normalize_tensor_transform, load_image, gram
-from src.style_transfer_perceptual_loss.network import ImageTransformNet
-from style_transfer_perceptual_loss.image_dataset import get_image_dataset, get_dataloader_from_dir
-from style_transfer_perceptual_loss.train_config import config
-from style_transfer_perceptual_loss.perceptual_loss import PerceptualLoss
+from src.perceptual_loss.utils import normalize_tensor_transform, load_image, gram
+from src.perceptual_loss.network import ImageTransformNet
+from perceptual_loss.image_dataset import get_image_dataset, get_dataloader_from_dir
+from perceptual_loss.train_config import config
+from perceptual_loss.perceptual_loss import PerceptualLoss
 from src.utils.visualizer import Visualizer
 from src.utils.train_utils import model_accelerate, get_device
 from tqdm import tqdm
 from src.utils.logger import ModelSaver, Logger
-from src.style_transfer_perceptual_loss.utils import save_image
+from src.perceptual_loss.utils import save_image
 
 if __name__ == '__main__':
 

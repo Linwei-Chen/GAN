@@ -4,7 +4,7 @@ __email__ = "charleschen2013@163.com"
 from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision import transforms
-from src.style_transfer_perceptual_loss.train_config import config
+from src.perceptual_loss.train_config import config
 import random
 import collections
 import random

@@ -38,6 +38,14 @@ def config():
     parser.add_argument('--sbd_repeat', type=int, default=1, help='Repeat for the voc dataset in train_voc_weakly.py')
     parser.add_argument('--sbd_data_path', type=str, default='/Users/chenlinwei/dataset/SBD_FULL11355/dataset',
                         help='Root for the voc dataset.')
+    parser.add_argument('--dataset_repeat', type=int, default=1,
+                        help='choose strong data size for semi superveised')
+
+    parser.add_argument('--cityscapes_data_path', type=str, default='/Users/chenlinwei/dataset/cityscapes',
+                        help='Root for the cityscape dataset.')
+    parser.add_argument('--data_choose_size', type=int, default=None,
+                        help='choose strong data size for semi superveised')
+
     parser.add_argument('--dataset', type=str, default='cifar10',
                         choices=['cifar10', 'cifar100'], help='Choose between Cifar10/100.')
     # Optimization options
@@ -70,7 +78,7 @@ def config():
     # i/o
     parser.add_argument('--log', type=str, default=None, help='Log folder.')
 
-    parser.add_argument('--crop_size', type=int, default=32, help='The size of image.')
+    parser.add_argument('--crop_size', type=int, default=320, help='The size of image.')
     parser.add_argument('--aug', type=str, default='resize', help='The size of image.')
 
     parser.add_argument('--display', type=int, default=0, help='display or not')

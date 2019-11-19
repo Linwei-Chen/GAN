@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 from torchvision import models
 from PIL import Image
-from style_transfer_perceptual_loss.image_dataset import get_transform
+from perceptual_loss.image_dataset import get_transform
 from src.utils.train_utils import get_device
 
 
@@ -89,7 +89,7 @@ class PerceptualLoss:
     def __init__(self, args):
         self.content_layer = args.content_layer
         device = get_device(args)
-        self.vgg = nn.DataParallel(Vgg16())
+        self.vgg = nn.DataParallel(Vgg16()).to(device)
         self.vgg.eval()
         self.mse = nn.DataParallel(nn.MSELoss())
         self.mse_sum = nn.DataParallel(nn.MSELoss(reduction='sum'))
