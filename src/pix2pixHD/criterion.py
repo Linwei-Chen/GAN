@@ -10,7 +10,7 @@ from src.utils.train_utils import get_device, model_accelerate
 # Losses
 ##############################################################################
 def get_GANLoss(args):
-    return GANLoss(use_lsgan=not args.no_lsgan)
+    return GANLoss(use_lsgan=args.use_lsgan)
 
 
 class GANLoss(nn.Module):

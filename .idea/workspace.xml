@@ -2,38 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98439897-3ac5-4216-a0d0-946386631e3b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/datasets/CityscapesDatasetPanoptic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/photo_augmentations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/transforms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/perceptual_loss/image_folder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pix2pixHD/criterion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pix2pixHD/hinge_lr_scheduler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pix2pixHD/image_pool.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pix2pixHD/networks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pix2pixHD/pix2pixHD_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pix2pixHD/train_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pix2pixHD/train_segmentation2image.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pix2pixHD/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/20191107GAN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/20191107GAN.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference/pix2pixHD" beforeDir="false" afterPath="$PROJECT_DIR$/reference/pix2pixHD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference/pix2pixHD/models/base_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/reference/pix2pixHD/models/base_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference/pix2pixHD/models/networks.py" beforeDir="false" afterPath="$PROJECT_DIR$/reference/pix2pixHD/models/networks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference/pix2pixHD/models/pix2pixHD_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/reference/pix2pixHD/models/pix2pixHD_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/image_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_folder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/image_transfer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/image_transfer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/perceptual_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/perceptual_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/style_imgs/TheStarryNight.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/style_imgs/TheStarryNight.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/style_imgs/mosaic.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/style_imgs/mosaic.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/style_imgs/udnie.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/style_imgs/udnie.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/train_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/train_style_transfer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/train_style_transfer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style_transfer_perceptual_loss/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/perceptual_loss/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/train_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/train_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasets/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasets/transforms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/transforms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pix2pixHD/criterion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pix2pixHD/criterion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pix2pixHD/train_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pix2pixHD/train_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pix2pixHD/train_segmentation2image.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pix2pixHD/train_segmentation2image.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,11 +18,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pix2pixHD/pix2pixHD_model.py">
+        <entry file="file://$PROJECT_DIR$/src/pix2pixHD/_pix2pixHD_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="175" column="57" selection-start-line="175" selection-start-column="57" selection-end-line="175" selection-end-column="57" />
+            <state relative-caret-position="540">
+              <caret line="175" column="37" selection-start-line="175" selection-start-column="37" selection-end-line="175" selection-end-column="37" />
               <folding>
+                <element signature="e#5373#6667#0" />
                 <element signature="e#9128#10112#0" />
                 <element signature="e#11296#12191#0" />
               </folding>
@@ -59,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reference/pix2pixHD/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="78" column="94" selection-start-line="78" selection-start-column="94" selection-end-line="78" selection-end-column="94" />
+            <state relative-caret-position="333">
+              <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -69,27 +44,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pix2pixHD/networks.py">
+        <entry file="file://$PROJECT_DIR$/src/pix2pixHD/criterion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+            <state relative-caret-position="-1027">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <element signature="e#5245#8308#0" />
-                <element signature="e#9826#11337#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pix2pixHD/criterion.py">
+        <entry file="file://$PROJECT_DIR$/src/utils/train_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="96" selection-start-line="96" selection-end-line="96" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="756">
+              <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -97,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pix2pixHD/train_segmentation2image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="121" column="12" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
+            <state relative-caret-position="404">
+              <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
               <folding>
                 <element signature="e#61#67#0" expanded="true" />
               </folding>
@@ -107,22 +77,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/tensorboardX_test.py">
+        <entry file="file://$PROJECT_DIR$/src/pix2pixHD/train_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="326">
+              <caret line="151" column="49" selection-start-line="150" selection-start-column="49" selection-end-line="151" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pix2pixHD/train_config.py">
+        <entry file="file://$PROJECT_DIR$/src/utils/logger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="147" column="27" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="38" />
+            <state relative-caret-position="367">
+              <caret line="185" column="4" selection-start-line="185" selection-start-column="4" selection-end-line="187" selection-end-column="30" />
+              <folding>
+                <element signature="e#62#71#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -130,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reference/pix2pixHD/util/image_pool.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="364">
+              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -140,24 +110,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/visualizer.py">
+        <entry file="file://$PROJECT_DIR$/src/datasets/CityscapesDatasetPanoptic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-3432">
+              <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
               <folding>
-                <element signature="e#62#80#0" expanded="true" />
+                <element signature="e#683#2749#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/datasets/CityscapesDatasetPanoptic.py">
+        <entry file="file://$PROJECT_DIR$/src/datasets/transforms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="548" selection-start-line="548" selection-end-line="554" selection-end-column="23" />
+            <state relative-caret-position="-8021">
+              <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
               <folding>
-                <element signature="e#117#128#0" expanded="true" />
-                <element signature="e#683#2749#0" />
+                <element signature="e#117#135#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -174,12 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getIntermFeat</find>
-      <find>G_GAN_Feat</find>
-      <find>netE</find>
-      <find>ImagePool</find>
-      <find>label2city</find>
-      <find>class_map</find>
       <find>###</find>
       <find>IDMapping</find>
       <find>smask</find>
@@ -204,10 +168,19 @@
       <find>n_layers_D</find>
       <find>criterionFeat</find>
       <find>discriminate</find>
+      <find>src.</find>
+      <find>item</find>
+      <find>fake_pool</find>
+      <find>optimi</find>
+      <find>epochs</find>
+      <find>args.tensorboard_path</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -223,7 +196,6 @@
         <option value="$PROJECT_DIR$/src/dataset/cifar.py" />
         <option value="$PROJECT_DIR$/src/train/train_dcgan.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/edge_detect.py" />
-        <option value="$PROJECT_DIR$/src/datasets/__init__.py" />
         <option value="$PROJECT_DIR$/reference/StyleTransfer/utils.py" />
         <option value="$PROJECT_DIR$/src/train/train_style_transfer_perceptual_loss.py" />
         <option value="$PROJECT_DIR$/reference/StyleTransfer/network.py" />
@@ -249,7 +221,6 @@
         <option value="$PROJECT_DIR$/reference/pix2pixHD/models/pix2pixHD_model.py" />
         <option value="$PROJECT_DIR$/src/datasets/cityscapes/CityscapesDatasetPanoptic.py" />
         <option value="$PROJECT_DIR$/src/datasets/cityscapes/transforms.py" />
-        <option value="$PROJECT_DIR$/src/datasets/transforms.py" />
         <option value="$PROJECT_DIR$/src/utils/train_config.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/LR_Lambda.py" />
@@ -258,11 +229,13 @@
         <option value="$PROJECT_DIR$/src/datasets/CityscapesDatasetPanoptic.py" />
         <option value="$PROJECT_DIR$/src/pix2pixHD/utils.py" />
         <option value="$PROJECT_DIR$/src/pix2pixHD/networks.py" />
-        <option value="$PROJECT_DIR$/src/pix2pixHD/train_config.py" />
-        <option value="$PROJECT_DIR$/src/pix2pixHD/criterion.py" />
-        <option value="$PROJECT_DIR$/src/pix2pixHD/train_segmentation2image.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/tensorboardX.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/tensorboardX_test.py" />
+        <option value="$PROJECT_DIR$/src/datasets/__init__.py" />
+        <option value="$PROJECT_DIR$/src/datasets/transforms.py" />
+        <option value="$PROJECT_DIR$/src/pix2pixHD/criterion.py" />
+        <option value="$PROJECT_DIR$/src/pix2pixHD/train_segmentation2image.py" />
+        <option value="$PROJECT_DIR$/src/pix2pixHD/train_config.py" />
       </list>
     </option>
   </component>
@@ -405,7 +378,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tensorboardX">
+  <component name="RunManager" selected="Python.train_segmentation2image">
     <configuration name="logger" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="20191107GAN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -520,8 +493,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.tensorboardX" />
         <item itemvalue="Python.train_segmentation2image" />
+        <item itemvalue="Python.tensorboardX" />
         <item itemvalue="Python.logger" />
         <item itemvalue="Python.networks" />
         <item itemvalue="Python.scratch" />
@@ -581,7 +554,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574037179749</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary=" ...">
+      <created>1574151916031</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1574151916031</updated>
+    </task>
+    <task id="LOCAL-00008" summary=" ...">
+      <created>1574152020844</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1574152020844</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -605,7 +592,7 @@
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15745568" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1725756" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" />
@@ -621,7 +608,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Run" order="3" visible="true" weight="0.33993745" />
+      <window_info anchor="right" id="Run" order="3" visible="true" weight="0.2367049" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -629,16 +616,6 @@
     <option name="LAST_COMMIT_MESSAGE" value=" ..." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/reference/pix2pixHD/data/image_folder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding>
-            <element signature="e#368#399#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reference/pix2pixHD/scripts/test_512p.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -851,16 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/datasets/transforms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6817">
-          <caret line="401" column="55" selection-start-line="401" selection-start-column="55" selection-end-line="401" selection-end-column="55" />
-          <folding>
-            <element signature="e#117#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/1119/photo_aug.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="727">
@@ -915,17 +882,6 @@
     <entry file="file://$PROJECT_DIR$/src/utils/recorder.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#62#71#0" expanded="true" />
-            <element signature="e#5657#10281#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pix2pixHD/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -949,23 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/train_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="974">
-          <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reference/pix2pixHD/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="78" column="94" selection-start-line="78" selection-start-column="94" selection-end-line="78" selection-end-column="94" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pix2pixHD/networks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="571">
@@ -978,28 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/datasets/CityscapesDatasetPanoptic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="548" selection-start-line="548" selection-end-line="554" selection-end-column="23" />
-          <folding>
-            <element signature="e#117#128#0" expanded="true" />
-            <element signature="e#683#2749#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pix2pixHD/pix2pixHD_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="175" column="57" selection-start-line="175" selection-start-column="57" selection-end-line="175" selection-end-column="57" />
-          <folding>
-            <element signature="e#9128#10112#0" />
-            <element signature="e#11296#12191#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/perceptual_loss/train_config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1007,50 +924,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reference/pix2pixHD/util/image_pool.py">
+    <entry file="file://$PROJECT_DIR$/src/datasets/CityscapesDatasetPanoptic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        <state relative-caret-position="-3432">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#683#2749#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pix2pixHD/train_config.py">
+    <entry file="file://$PROJECT_DIR$/src/datasets/transforms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="147" column="27" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pix2pixHD/criterion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        <state relative-caret-position="-8021">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pix2pixHD/train_segmentation2image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="121" column="12" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
-          <folding>
-            <element signature="e#61#67#0" expanded="true" />
+            <element signature="e#117#135#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/tensorboardX_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="300">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/datasets/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="72" selection-start-line="2" selection-start-column="72" selection-end-line="2" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reference/pix2pixHD/util/image_pool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pix2pixHD/criterion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1027">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reference/pix2pixHD/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pix2pixHD/_pix2pixHD_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="175" column="37" selection-start-line="175" selection-start-column="37" selection-end-line="175" selection-end-column="37" />
+          <folding>
+            <element signature="e#5373#6667#0" />
+            <element signature="e#9128#10112#0" />
+            <element signature="e#11296#12191#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="185" column="4" selection-start-line="185" selection-start-column="4" selection-end-line="187" selection-end-column="30" />
+          <folding>
+            <element signature="e#62#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/train_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pix2pixHD/train_segmentation2image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+          <folding>
+            <element signature="e#61#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pix2pixHD/train_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="151" column="49" selection-start-line="150" selection-start-column="49" selection-end-line="151" selection-end-column="49" />
         </state>
       </provider>
     </entry>

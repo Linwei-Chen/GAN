@@ -1,2 +1,3 @@
 from datasets.cls_dataset.mnist import get_mnist_data_set
 from datasets.cls_dataset.cifar import get_cifar_10_data_set
+from datasets.CityscapesDatasetPanoptic import get_cityscapes_dataloader

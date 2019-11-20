@@ -14,6 +14,7 @@ __email__ = "charleschen2013@163.com"
 
 import argparse
 import os
+import os.path as osp
 import torch
 import torch.nn.functional as F
 import torchvision.datasets as dset
@@ -22,6 +23,11 @@ import time
 from tqdm import tqdm
 from torch import optim
 from torch.utils.data import DataLoader
+
+
+def create_dir(dir_path):
+    if not osp.exists(dir_path):
+        os.mkdir(dir_path)
 
 
 def config():
@@ -50,7 +56,7 @@ def config():
                         choices=['cifar10', 'cifar100'], help='Choose between Cifar10/100.')
     # Optimization options
     parser.add_argument('--optimizer', '-op', type=str, default='adam', help='Optimizer to train model.')
-    parser.add_argument('--epochs', '-e', type=int, default=50, help='Number of epochs to train.')
+    parser.add_argument('--epochs', '-e', type=int, default=200, help='Number of epochs to train.')
     parser.add_argument('--batch_size', '-b', type=int, default=2, help='Batch size.')
     parser.add_argument('--lr', type=float, default=0.0002, help='The Learning Rate.')
     parser.add_argument('--G_lr', type=float, default=0.0002, help='The Learning Rate if generator.')
@@ -147,22 +153,28 @@ def config():
     parser.add_argument('--ndf', type=int, default=64, help='# of discrim filters in first conv layer')
     parser.add_argument('--lambda_feat', type=float, default=10.0, help='weight for feature matching loss')
 
-    parser.add_argument('--use_ganFeat_loss', default=True,
+    parser.add_argument('--use_ganFeat_loss', default=1, type=int,
                         help='if true, use discriminator feature matching loss')
 
-    parser.add_argument('--use_vgg_loss', default=True,
+    parser.add_argument('--use_vgg_loss', default=1, type=int,
                         help='if true, use VGG feature matching loss')
     parser.add_argument('--vgg_type', default='vgg16', choices=['vgg16', 'vgg19'],
                         help='if none, do not use VGG feature matching loss')
-    parser.add_argument('--use_lsgan', default=True,
+
+    parser.add_argument('--use_lsgan', default=1, type=int,
                         help='if true, use least square GAN, if false, use vanilla GAN')
     parser.add_argument('--pool_size', type=int, default=0,
                         help='the size of image buffer that stores previously generated images')
 
     args = parser.parse_args()
+    for arg in vars(args):
+        print(arg, getattr(args, arg))
     if args.save is None:
         args.save = f'../../temp_run'
     if args.log is None:
         args.log = args.save
+
+    args.tensorboard_path = osp.join(args.save, 'tensorboard')
+    create_dir(args.tensorboard_path)
     args.scheduler = f'{args.optimizer}_{args.scheduler}'
     return args
