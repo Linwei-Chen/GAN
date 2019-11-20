@@ -8,7 +8,7 @@ from chainercv.datasets.voc import voc_utils
 from chainercv.utils import read_image
 from torch.utils.data import Dataset
 from PIL import Image
-from datasets import choose_uniformly
+from datasets.voc.voc_instance_segmentation_dataset import choose_uniformly
 
 try:
     import scipy
@@ -140,6 +140,7 @@ class SBDInstanceDataset(Dataset):
             # print(np.unique(inst))
             sample['instance'] = Image.fromarray(inst)
             sample['label'] = Image.fromarray(label)
+            sample['smask'] = Image.fromarray(label)
             sample['image'] = Image.fromarray(img)
             sample['im_name'] = self.data_set._get_image_file(index)
             # sample['im_name'] = ''

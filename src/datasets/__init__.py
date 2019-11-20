@@ -1,3 +1,5 @@
 from datasets.cls_dataset.mnist import get_mnist_data_set
 from datasets.cls_dataset.cifar import get_cifar_10_data_set
 from datasets.CityscapesDatasetPanoptic import get_cityscapes_dataloader
+from datasets.voc import get_voc_sbd_instance_dataloader
+from datasets.pix2pix_maps import get_pix2pix_maps_dataloader

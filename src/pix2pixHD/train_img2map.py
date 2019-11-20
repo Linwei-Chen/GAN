@@ -17,7 +17,7 @@ from src.pix2pixHD.networks import get_G, get_D, get_E
 from torch.optim import Adam
 from src.pix2pixHD.hinge_lr_scheduler import get_hinge_scheduler
 from src.utils.logger import ModelSaver, Logger
-from src.datasets import get_cityscapes_dataloader
+from src.datasets import get_pix2pix_maps_dataloader
 from src.pix2pixHD.utils import get_edges, label_to_one_hot, get_encode_features
 from src.utils.visualizer import Visualizer
 from tqdm import tqdm
@@ -26,8 +26,8 @@ from src.pix2pixHD.criterion import get_GANLoss, get_VGGLoss, get_DFLoss
 from tensorboardX import SummaryWriter
 
 
-def train(args, get_dataloader_func=get_cityscapes_dataloader):
-    logger = Logger(save_path=args.save, json_name='seg2img')
+def train(args, get_dataloader_func=get_pix2pix_maps_dataloader):
+    logger = Logger(save_path=args.save, json_name='img2map')
 
     model_saver = ModelSaver(save_path=args.save,
                              name_list=['G', 'D', 'E', 'G_optimizer', 'D_optimizer', 'E_optimizer',
@@ -36,26 +36,20 @@ def train(args, get_dataloader_func=get_cityscapes_dataloader):
     sw = SummaryWriter(args.tensorboard_path)
     G = get_G(args)
     D = get_D(args)
-    E = get_E(args)
     model_saver.load('G', G)
     model_saver.load('D', D)
-    model_saver.load('E', E)
 
     G_optimizer = Adam(G.parameters(), lr=args.G_lr, betas=(args.beta1, 0.999))
     D_optimizer = Adam(D.parameters(), lr=args.D_lr, betas=(args.beta1, 0.999))
-    E_optimizer = Adam(E.parameters(), lr=args.E_lr, betas=(args.beta1, 0.999))
 
     model_saver.load('G_optimizer', G_optimizer)
     model_saver.load('D_optimizer', D_optimizer)
-    model_saver.load('E_optimizer', E_optimizer)
 
     G_scheduler = get_hinge_scheduler(args, G_optimizer)
     D_scheduler = get_hinge_scheduler(args, D_optimizer)
-    E_scheduler = get_hinge_scheduler(args, E_optimizer)
 
     model_saver.load('G_scheduler', G_scheduler)
     model_saver.load('D_scheduler', D_scheduler)
-    model_saver.load('E_scheduler', E_scheduler)
 
     device = get_device(args)
 
@@ -75,29 +69,19 @@ def train(args, get_dataloader_func=get_cityscapes_dataloader):
 
         for step, sample in enumerate(data_loader):
             imgs = sample['image'].to(device)
-            instances = sample['instance'].to(device)
-            labels = sample['label'].to(device)
-            smasks = sample['smask'].to(device)
+            maps = sample['map'].to(device)
             # print(smasks.shape)
-
-            instances_edge = get_edges(instances)
-            one_hot_labels = label_to_one_hot(smasks.long(), n_class=args.label_nc)
-
-            # Encoder out
-            encode_features = E(imgs, instances)
 
             # train the Discriminator
             D_optimizer.zero_grad()
-            labels_instE_encodeF = torch.cat([one_hot_labels.float(), instances_edge.float(), encode_features.float()],
-                                             dim=1)
-            fakes = G(labels_instE_encodeF).detach()
+            reals_maps = torch.cat([imgs.float(), maps.float()], dim=1)
+            fakes = G(imgs).detach()
+            fakes_maps = torch.cat([imgs.float(), fakes.float()], dim=1)
 
-            labels_instE_realimgs = torch.cat([one_hot_labels.float(), instances_edge.float(), imgs.float()], dim=1)
-            D_real_outs = D(labels_instE_realimgs)
+            D_real_outs = D(reals_maps)
             D_real_loss = GANLoss(D_real_outs, True)
 
-            labels_instE_fakeimgs = torch.cat([one_hot_labels.float(), instances_edge.float(), fakes.float()], dim=1)
-            D_fake_outs = D(labels_instE_fakeimgs)
+            D_fake_outs = D(fakes_maps)
             D_fake_loss = GANLoss(D_fake_outs, False)
 
             D_loss = 0.5 * (D_real_loss + D_fake_loss)
@@ -108,10 +92,9 @@ def train(args, get_dataloader_func=get_cityscapes_dataloader):
 
             # train generator and encoder
             G_optimizer.zero_grad()
-            E_optimizer.zero_grad()
-            fakes = G(labels_instE_encodeF)
-            labels_instE_fakeimgs = torch.cat([one_hot_labels.float(), instances_edge.float(), fakes.float()], dim=1)
-            D_fake_outs = D(labels_instE_fakeimgs)
+            fakes = G(imgs)
+            fakes_maps = torch.cat([imgs.float(), fakes.float()], dim=1)
+            D_fake_outs = D(fakes_maps)
 
             gan_loss = GANLoss(D_fake_outs, True)
 
@@ -138,7 +121,6 @@ def train(args, get_dataloader_func=get_cityscapes_dataloader):
             G_loss = G_loss.item()
 
             G_optimizer.step()
-            E_optimizer.step()
 
             data_loader.write(f'Epochs:{epoch} | Dloss:{D_loss:.6f} | Gloss:{G_loss:.6f}'
                               f'| GANloss:{gan_loss:.6f} | VGGloss:{vgg_loss:.6f} '
@@ -149,11 +131,9 @@ def train(args, get_dataloader_func=get_cityscapes_dataloader):
 
             # display
             if args.display and step % args.display == 0:
-                visualizer.display(transforms.ToPILImage()(encode_features[0].cpu()), 'encode_feature')
                 visualizer.display(transforms.ToPILImage()(imgs[0].cpu()), 'image')
                 visualizer.display(transforms.ToPILImage()(fakes[0].cpu()), 'fake')
-                visualizer.display(transforms.ToPILImage()(labels[0].cpu() * 15), 'label')
-                visualizer.display(transforms.ToPILImage()(instances[0].cpu() * 15), 'instance')
+                visualizer.display(transforms.ToPILImage()(maps[0].cpu()), 'label')
 
             # tensorboard log
             total_steps = epoch * len(data_loader) + step
@@ -165,17 +145,13 @@ def train(args, get_dataloader_func=get_cityscapes_dataloader):
 
             sw.add_scalar('LR/G', get_lr(G_optimizer), total_steps)
             sw.add_scalar('LR/D', get_lr(D_optimizer), total_steps)
-            sw.add_scalar('LR/E', get_lr(E_optimizer), total_steps)
 
             sw.add_image('img/real', imgs[0].cpu(), step)
             sw.add_image('img/fake', fakes[0].cpu(), step)
-            sw.add_image('visual/encode_feature', encode_features[0].cpu(), step)
-            sw.add_image('visual/instance', instances[0].cpu(), step)
-            sw.add_image('visual/label', labels[0].cpu(), step)
+            sw.add_image('visual/label', maps[0].cpu(), step)
 
         D_scheduler.step(epoch)
         G_scheduler.step(epoch)
-        E_scheduler.step(epoch)
 
         logger.log(key='D_loss', data=sum(D_loss_list) / float(len(D_loss_list)))
         logger.log(key='G_loss', data=sum(G_loss_list) / float(len(G_loss_list)))
@@ -184,19 +160,18 @@ def train(args, get_dataloader_func=get_cityscapes_dataloader):
 
         model_saver.save('G', G)
         model_saver.save('D', D)
-        model_saver.save('E', E)
 
         model_saver.save('G_optimizer', G_optimizer)
         model_saver.save('D_optimizer', D_optimizer)
-        model_saver.save('E_optimizer', E_optimizer)
 
         model_saver.save('G_scheduler', G_scheduler)
         model_saver.save('D_scheduler', D_scheduler)
-        model_saver.save('E_scheduler', E_scheduler)
 
 
 if __name__ == '__main__':
     args = config()
-    train(args, get_dataloader_func=get_cityscapes_dataloader)
+    assert args.feat_num == 0
+    assert args.use_instance == 0
+    train(args, get_dataloader_func=get_pix2pix_maps_dataloader)
 
 pass

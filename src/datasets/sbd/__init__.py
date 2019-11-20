@@ -1,5 +1,5 @@
-from datasets import SBDInstanceDataset
-from datasets import get_transform
+from datasets.sbd.sbd_instance_segmentation_dataset import SBDInstanceDataset
+from datasets.transforms import get_transform
 from torch.utils.data import DataLoader
 
 

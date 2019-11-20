@@ -10,7 +10,18 @@ from src.utils.train_utils import get_device, model_accelerate
 # Losses
 ##############################################################################
 def get_GANLoss(args):
+    # return nn.DataParallel(GANLoss(use_lsgan=args.use_lsgan))
     return GANLoss(use_lsgan=args.use_lsgan)
+
+
+def get_VGGLoss(args):
+    # return nn.DataParallel(VGGLoss(args))
+    return VGGLoss(args)
+
+
+def get_DFLoss(args=None):
+    # return nn.DataParallel(DiscriminatorFeaturesLoss())
+    return DiscriminatorFeaturesLoss()
 
 
 class GANLoss(nn.Module):
@@ -24,8 +35,11 @@ class GANLoss(nn.Module):
         self.Tensor = tensor
         if use_lsgan:
             self.loss = nn.DataParallel(nn.MSELoss())
+            # self.loss = nn.MSELoss()
         else:
             self.loss = nn.DataParallel(nn.BCELoss())
+            # self.loss = nn.BCELoss()
+        print(f'===> {self.__class__.__name__} | use_lsgan:{use_lsgan} | loss:{self.loss}')
 
     def get_target_tensor(self, input, target_is_real):
         target_tensor = None
@@ -64,9 +78,13 @@ class VGGLoss(nn.Module):
         assert args.vgg_type in ('vgg16', 'vgg19')
         vgg = Vgg16 if args.vgg_type == 'vgg16' else Vgg19
         self.vgg = nn.DataParallel(vgg()).to(get_device(args))
+        # self.vgg = vgg().to(get_device(args))
         self.vgg.eval()
-        self.criterion = nn.L1Loss()
+        self.criterion = nn.DataParallel(nn.L1Loss())
+        # self.criterion = nn.L1Loss()
         self.weights = [1.0 / 32, 1.0 / 16, 1.0 / 8, 1.0 / 4, 1.0]
+
+        print(f'===> {self.__class__.__name__} | vgg:{args.vgg_type} | loss:{self.criterion}')
 
     def forward(self, x, y):
         with torch.no_grad():
@@ -81,10 +99,10 @@ class DiscriminatorFeaturesLoss(nn.Module):
     def __init__(self):
         super().__init__()
         self.l1 = nn.DataParallel(nn.L1Loss())
+        # self.l1 = nn.L1Loss()
 
     def forward(self, ds_fake, ds_real):
         """
-
         :param ds_fake: [D1:[layer1_outs, layer2_outs ...], D2, D3]
         :param ds_real:
         :return:

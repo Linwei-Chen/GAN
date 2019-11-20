@@ -2,7 +2,7 @@ import numpy as np
 import os
 
 from chainercv.chainer_experimental.datasets.sliceable import GetterDataset
-from datasets import voc_utils
+from datasets.voc import voc_utils
 from chainercv.utils import read_image
 from chainercv.utils import read_label
 from torch.utils.data import Dataset
@@ -151,6 +151,7 @@ class VOCInstanceDataset(Dataset):
 
         sample['instance'] = Image.fromarray(inst)
         sample['label'] = Image.fromarray(label)
+        sample['smask'] = Image.fromarray(label)
         # sample['label_255'] = Image.fromarray(label_255)
         sample['im_name'] = self.data_set._get_image_file(index)
         sample['image'] = Image.fromarray(img)

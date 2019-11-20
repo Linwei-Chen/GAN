@@ -525,7 +525,7 @@ class RandomCrop(T.RandomCrop):
 
     def __init__(self, keys=KEYS, size=100):
 
-        super().__init__(size)
+        super().__init__(size, pad_if_needed=True)
         self.keys = keys
 
     def __call__(self, sample):

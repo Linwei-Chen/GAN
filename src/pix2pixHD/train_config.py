@@ -38,12 +38,18 @@ def config():
                         help='Root for the Cifar dataset.')
     parser.add_argument('--mnist_data_path', type=str, default='/Users/chenlinwei/dataset',
                         help='Root for the MNIST dataset.')
+
     parser.add_argument('--voc2012_data_path', type=str, default='/Users/chenlinwei/dataset/VOCdevkit/VOC2012',
                         help='Root for the voc dataset.')
-    parser.add_argument('--voc_repeat', type=int, default=10, help='Repeat for the voc dataset in train_voc_weakly.py')
-    parser.add_argument('--sbd_repeat', type=int, default=1, help='Repeat for the voc dataset in train_voc_weakly.py')
     parser.add_argument('--sbd_data_path', type=str, default='/Users/chenlinwei/dataset/SBD_FULL11355/dataset',
                         help='Root for the voc dataset.')
+
+    parser.add_argument('--pix2pix_maps_data_path', type=str, default='/Users/chenlinwei/dataset/pix2pix_maps',
+                        help='Root for the voc dataset.')
+
+    parser.add_argument('--voc_repeat', type=int, default=1, help='Repeat for the voc dataset in train_voc_weakly.py')
+    parser.add_argument('--sbd_repeat', type=int, default=1, help='Repeat for the voc dataset in train_voc_weakly.py')
+
     parser.add_argument('--dataset_repeat', type=int, default=1,
                         help='choose strong data size for semi superveised')
 
@@ -89,7 +95,6 @@ def config():
     parser.add_argument('--aug', type=str, default='crop', help='The size of image.')
 
     parser.add_argument('--display', type=int, default=0, help='display or not')
-    parser.add_argument('--display_iter', type=int, default=3, help='display interval')
 
     #####
     # pix2pixHD config
@@ -121,7 +126,7 @@ def config():
                         help='Maximum number of samples allowed per dataset. If the dataset directory contains more than max_dataset_size, only a subset is loaded.')
 
     # for generator
-    parser.add_argument('--netG', type=str, default='global', help='selects model to use for netG')
+    parser.add_argument('--netG', type=str, default='global', choices=['global', 'local'], help='selects model to use for netG')
     parser.add_argument('--ngf', type=int, default=64, help='# of gen filters in first conv layer')
     parser.add_argument('--n_downsample_global', type=int, default=4, help='number of downsampling layers in netG')
     parser.add_argument('--n_blocks_global', type=int, default=9,
@@ -129,11 +134,12 @@ def config():
     parser.add_argument('--n_blocks_local', type=int, default=3,
                         help='number of residual blocks in the local enhancer network')
     parser.add_argument('--n_local_enhancers', type=int, default=1, help='number of local enhancers to use')
+
     parser.add_argument('--niter_fix_global', type=int, default=0,
                         help='number of epochs that we only train the outmost local enhancer')
 
     # for instance-wise features
-    parser.add_argument('--use_instance', default=True,
+    parser.add_argument('--use_instance', default=1, type=int,
                         help='if true, do add instance map as input')
     parser.add_argument('--instance_feat', action='store_true',
                         help='if specified, add encoded instance features as input')
@@ -163,8 +169,6 @@ def config():
 
     parser.add_argument('--use_lsgan', default=1, type=int,
                         help='if true, use least square GAN, if false, use vanilla GAN')
-    parser.add_argument('--pool_size', type=int, default=0,
-                        help='the size of image buffer that stores previously generated images')
 
     args = parser.parse_args()
     for arg in vars(args):
