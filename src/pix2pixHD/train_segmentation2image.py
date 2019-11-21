@@ -156,22 +156,23 @@ def train(args, get_dataloader_func=get_cityscapes_dataloader):
                 visualizer.display(transforms.ToPILImage()(instances[0].cpu() * 15), 'instance')
 
             # tensorboard log
-            total_steps = epoch * len(data_loader) + step
-            sw.add_scalar('Loss/G', G_loss, total_steps)
-            sw.add_scalar('Loss/D', D_loss, total_steps)
-            sw.add_scalar('Loss/gan', gan_loss, total_steps)
-            sw.add_scalar('Loss/vgg', vgg_loss, total_steps)
-            sw.add_scalar('Loss/df', df_loss, total_steps)
+            if args.tensorboard_log and step % args.tensorboard_log == 0:
+                total_steps = epoch * len(data_loader) + step
+                sw.add_scalar('Loss/G', G_loss, total_steps)
+                sw.add_scalar('Loss/D', D_loss, total_steps)
+                sw.add_scalar('Loss/gan', gan_loss, total_steps)
+                sw.add_scalar('Loss/vgg', vgg_loss, total_steps)
+                sw.add_scalar('Loss/df', df_loss, total_steps)
 
-            sw.add_scalar('LR/G', get_lr(G_optimizer), total_steps)
-            sw.add_scalar('LR/D', get_lr(D_optimizer), total_steps)
-            sw.add_scalar('LR/E', get_lr(E_optimizer), total_steps)
+                sw.add_scalar('LR/G', get_lr(G_optimizer), total_steps)
+                sw.add_scalar('LR/D', get_lr(D_optimizer), total_steps)
+                sw.add_scalar('LR/E', get_lr(E_optimizer), total_steps)
 
-            sw.add_image('img/real', imgs[0].cpu(), step)
-            sw.add_image('img/fake', fakes[0].cpu(), step)
-            sw.add_image('visual/encode_feature', encode_features[0].cpu(), step)
-            sw.add_image('visual/instance', instances[0].cpu(), step)
-            sw.add_image('visual/label', labels[0].cpu(), step)
+                sw.add_image('img/real', imgs[0].cpu(), step)
+                sw.add_image('img/fake', fakes[0].cpu(), step)
+                sw.add_image('visual/encode_feature', encode_features[0].cpu(), step)
+                sw.add_image('visual/instance', instances[0].cpu(), step)
+                sw.add_image('visual/label', labels[0].cpu(), step)
 
         D_scheduler.step(epoch)
         G_scheduler.step(epoch)

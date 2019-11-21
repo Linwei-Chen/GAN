@@ -24,6 +24,8 @@ from tqdm import tqdm
 from torchvision import transforms
 from src.pix2pixHD.criterion import get_GANLoss, get_VGGLoss, get_DFLoss, get_low_level_loss
 from tensorboardX import SummaryWriter
+from src.pix2pixHD.utils import from_std_tensor_save_image, create_dir
+from pix2pixHD.eval_img2map import eval, get_fid
 
 
 def train(args, get_dataloader_func=get_pix2pix_maps_dataloader):
@@ -38,6 +40,11 @@ def train(args, get_dataloader_func=get_pix2pix_maps_dataloader):
     D = get_D(args)
     model_saver.load('G', G)
     model_saver.load('D', D)
+
+    # fid = get_fid(args)
+    # logger.log(key='FID', data=fid)
+    # logger.save_log()
+    # logger.visualize()
 
     G_optimizer = Adam(G.parameters(), lr=args.G_lr, betas=(args.beta1, 0.999))
     D_optimizer = Adam(D.parameters(), lr=args.D_lr, betas=(args.beta1, 0.999))
@@ -164,6 +171,12 @@ def train(args, get_dataloader_func=get_pix2pix_maps_dataloader):
 
         D_scheduler.step(epoch)
         G_scheduler.step(epoch)
+        if epoch % 10 == 0:
+            fid = eval(args, model=G, data_loader=get_dataloader_func(args, train=False))
+            logger.log(key='FID', data=fid)
+            if fid > logger.get_max(key='FID'):
+                model_saver.save(f'G_{fid:.4f}', G)
+                model_saver.save(f'D_{fid:.4f}', D)
 
         logger.log(key='D_loss', data=sum(D_loss_list) / float(len(D_loss_list)))
         logger.log(key='G_loss', data=sum(G_loss_list) / float(len(G_loss_list)))

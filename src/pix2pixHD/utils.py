@@ -1,4 +1,8 @@
 import torch
+import numpy as np
+from PIL import Image
+import os
+import os.path as osp
 
 
 def get_edges(t: torch.Tensor):
@@ -40,7 +44,22 @@ def label_to_one_hot(targets: torch.Tensor, n_class: int, with_255: bool = False
     return one_hot.float()
 
 
-def get_encode_features(E: torch.nn.Module, imgs: torch.Tensor, instances: torch.Tensor, labels:torch.Tensor):
+def create_dir(dir_path):
+    if not osp.exists(dir_path):
+        os.mkdir(dir_path)
+
+
+def from_std_tensor_save_image(filename, data, std=[0.5, 0.5, 0.5], mean=[0.5, 0.5, 0.5]):
+# def from_std_tensor_save_image(filename, data, std=[0.229, 0.224, 0.225], mean=[0.485, 0.456, 0.406]):
+    std = np.array(std).reshape((3, 1, 1))
+    mean = np.array(mean).reshape((3, 1, 1))
+    img = data.clone().numpy()
+    img = ((img * std + mean).transpose(1, 2, 0) * 255.0).clip(0, 255).astype("uint8")
+    img = Image.fromarray(img)
+    img.save(filename)
+
+
+def get_encode_features(E: torch.nn.Module, imgs: torch.Tensor, instances: torch.Tensor, labels: torch.Tensor):
     """
     get instance-wise pooling feature from encoder, this function is also built in encode
     :param E:
@@ -66,3 +85,7 @@ def get_encode_features(E: torch.nn.Module, imgs: torch.Tensor, instances: torch
                 class_feature_dict[cls] = []
             class_feature_dict[cls].append(mean_feature.cpu().numpy())
     return encode_features, class_feature_dict
+
+if __name__ == '__main__':
+    from pix2pixHD.train_voc import *
+    pass

@@ -26,8 +26,8 @@ def get_list(root_dir, type):
 
     map_list = glob.glob(os.path.join(root_dir, f'{type}B/*.jpg'))
     map_list.sort()
-    for i, j in zip(image_list, map_list):
-        print(i, j)
+    # for i, j in zip(image_list, map_list):
+    #     print(i, j)
     return image_list, map_list
 
 
@@ -43,6 +43,7 @@ class Pix2PixDataSet(Dataset):
         sample = {}
         sample['image'] = Image.open(self.image_list[index]).convert('RGB')
         sample['map'] = Image.open(self.map_list[index]).convert('RGB')
+        sample['im_name'] = self.image_list[index]
         if self.transform is not None:
             sample = self.transform(sample)
         return sample
@@ -58,8 +59,8 @@ class RandomCrop(transforms.RandomCrop):
 
     def __call__(self, sample):
         params = self.get_params(sample['image'], self.size)
-        for k in sample:
-            sample[k] = F.crop(sample[k], *params)
+        sample['image'] = F.crop(sample['image'], *params)
+        sample['map'] = F.crop(sample['map'], *params)
 
         return sample
 
@@ -118,8 +119,8 @@ class ToTensor(object):
         pass
 
     def __call__(self, sample):
-        for k in sample:
-            sample[k] = transforms.ToTensor()(sample[k])
+        sample['image'] = transforms.ToTensor()(sample['image'])
+        sample['map'] = transforms.ToTensor()(sample['map'])
 
         return sample
 
@@ -192,7 +193,37 @@ def get_pix2pix_maps_dataloader(args, train=True):
     return data_loader
 
 
-if __name__ == '__main__':
+def get_unstd_dataset_for_analyse(args):
+    transform = transforms.Compose([
+        StrideAlign(),
+        ToTensor()
+    ])
+    data_set = Pix2PixDataSet(args, type='train', transform=transform)
+    data_loader = DataLoader(dataset=data_set,
+                             batch_size=args.test_batch_size,
+                             shuffle=False,
+                             num_workers=args.prefetch,
+                             pin_memory=False,
+                             drop_last=False)
+    return data_loader
+
+
+def color_cluster():
+    from src.pix2pixHD.train_config import config
+    from sklearn.cluster import KMeans
+    args = config()
+
+    data_loader = get_unstd_dataset_for_analyse(args)
+    for i, sample in enumerate(data_loader):
+        maps = sample['map'].transpose(1, 2).transpose(2, 3).reshape(-1, 3)
+        maps = maps.cpu().numpy()
+        print(maps)
+        kmeans = KMeans(n_clusters=16, random_state=0, max_iter=1).fit(maps[:])
+        centers = kmeans.cluster_centers_
+        print(centers)
+
+
+def _test_dataset():
     from src.pix2pixHD.train_config import config
 
     args = config()
@@ -200,3 +231,8 @@ if __name__ == '__main__':
     for i, sample in enumerate(data_loader):
         transforms.ToPILImage()(sample['image'][0]).show()
         transforms.ToPILImage()(sample['map'][0]).show()
+
+
+if __name__ == '__main__':
+    color_cluster()
+    pass

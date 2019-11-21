@@ -74,8 +74,19 @@ class Logger:
         if show:
             print(f'===> log key:{key} -> data:{data}')
 
+    def same_data_len(self):
+        ml = 0
+        for k in self.state:
+            ml = max(len(self.state[k]), ml)
+        for k in self.state:
+            temp_len = len(self.state[k])
+            if temp_len < ml:
+                self.state[k] = self.state[k] + [0.]* (ml-temp_len)
+
     def save_log(self):
         # save data as csv
+        self.same_data_len()
+
         df = pd.DataFrame.from_dict(self.state)
         df.to_csv(self.csv_path)
 

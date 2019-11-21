@@ -35,6 +35,7 @@ def get_low_level_loss(args, low_level_loss=None):
         L = nn.DataParallel(nn.SmoothL1Loss())
     else:
         raise NotImplementedError
+    return L
 
 
 class GANLoss(nn.Module):

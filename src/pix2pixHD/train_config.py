@@ -70,7 +70,7 @@ def config():
     parser.add_argument('--E_lr', type=float, default=0.0002, help='The Learning Rate of discriminator.')
     parser.add_argument('--momentum', '-m', type=float, default=0.9, help='Momentum.')
     parser.add_argument('--decay', '-d', type=float, default=0.0005, help='Weight decay (L2 penalty).')
-    parser.add_argument('--test_batch_size', type=int, default=10)
+    parser.add_argument('--test_batch_size', type=int, default=8)
     parser.add_argument('--scheduler', type=str, default='multi_step')
     parser.add_argument('--milestones', type=int, nargs='+', default=[25, 40],
                         help='Decrease learning rate at these epochs.')
@@ -172,10 +172,10 @@ def config():
                         help='if true, use least square GAN, if false, use vanilla GAN')
 
     parser.add_argument('--use_low_level_loss', default=0, type=int, choices=[0, 1],
-                        help='use low level loss or not')
+                        help='use low level loss or not, used in img2map')
 
     parser.add_argument('--low_level_loss', default='L1', type=str, choices=['L1', 'L2', 'smoothL1'],
-                        help='low level loss')
+                        help='low level loss, used in img2map')
 
     args = parser.parse_args()
     for arg in vars(args):
