@@ -95,6 +95,7 @@ def config():
     parser.add_argument('--aug', type=str, default='crop', help='The size of image.')
 
     parser.add_argument('--display', type=int, default=0, help='display or not')
+    parser.add_argument('--tensorboard_log', type=int, default=5, help='display or not')
 
     #####
     # pix2pixHD config
@@ -169,6 +170,12 @@ def config():
 
     parser.add_argument('--use_lsgan', default=1, type=int,
                         help='if true, use least square GAN, if false, use vanilla GAN')
+
+    parser.add_argument('--use_low_level_loss', default=0, type=int, choices=[0, 1],
+                        help='use low level loss or not')
+
+    parser.add_argument('--low_level_loss', default='L1', type=str, choices=['L1', 'L2', 'smoothL1'],
+                        help='low level loss')
 
     args = parser.parse_args()
     for arg in vars(args):

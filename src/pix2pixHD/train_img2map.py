@@ -22,7 +22,7 @@ from src.pix2pixHD.utils import get_edges, label_to_one_hot, get_encode_features
 from src.utils.visualizer import Visualizer
 from tqdm import tqdm
 from torchvision import transforms
-from src.pix2pixHD.criterion import get_GANLoss, get_VGGLoss, get_DFLoss
+from src.pix2pixHD.criterion import get_GANLoss, get_VGGLoss, get_DFLoss, get_low_level_loss
 from tensorboardX import SummaryWriter
 
 
@@ -54,10 +54,13 @@ def train(args, get_dataloader_func=get_pix2pix_maps_dataloader):
     device = get_device(args)
 
     GANLoss = get_GANLoss(args)
+
     if args.use_ganFeat_loss:
         DFLoss = get_DFLoss(args)
     if args.use_vgg_loss:
         VGGLoss = get_VGGLoss(args)
+    if args.use_low_level_loss:
+        LLLoss = get_low_level_loss(args)
 
     epoch_now = len(logger.get_data('G_loss'))
     for epoch in range(epoch_now, args.epochs):
@@ -116,6 +119,13 @@ def train(args, get_dataloader_func=get_pix2pix_maps_dataloader):
             else:
                 df_loss = 0.
 
+            if args.use_low_level_loss:
+                ll_loss = LLLoss(fakes, maps)
+                G_loss += args.lambda_feat * ll_loss
+                ll_loss = ll_loss.mean().item()
+            else:
+                ll_loss = 0.
+
             G_loss = G_loss.mean()
             G_loss.backward()
             G_loss = G_loss.item()
@@ -123,8 +133,8 @@ def train(args, get_dataloader_func=get_pix2pix_maps_dataloader):
             G_optimizer.step()
 
             data_loader.write(f'Epochs:{epoch} | Dloss:{D_loss:.6f} | Gloss:{G_loss:.6f}'
-                              f'| GANloss:{gan_loss:.6f} | VGGloss:{vgg_loss:.6f} '
-                              f'| DFloss:{df_loss:.6f} | lr:{get_lr(G_optimizer):.8f}')
+                              f'| GANloss:{gan_loss:.6f} | VGGloss:{vgg_loss:.6f} | DFloss:{df_loss:.6f} '
+                              f'| LLloss:{ll_loss:.6f} | lr:{get_lr(G_optimizer):.8f}')
 
             G_loss_list.append(G_loss)
             D_loss_list.append(D_loss)
@@ -136,19 +146,21 @@ def train(args, get_dataloader_func=get_pix2pix_maps_dataloader):
                 visualizer.display(transforms.ToPILImage()(maps[0].cpu()), 'label')
 
             # tensorboard log
-            total_steps = epoch * len(data_loader) + step
-            sw.add_scalar('Loss/G', G_loss, total_steps)
-            sw.add_scalar('Loss/D', D_loss, total_steps)
-            sw.add_scalar('Loss/gan', gan_loss, total_steps)
-            sw.add_scalar('Loss/vgg', vgg_loss, total_steps)
-            sw.add_scalar('Loss/df', df_loss, total_steps)
+            if args.tensorboard_log and step % args.tensorboard_log == 0:
+                total_steps = epoch * len(data_loader) + step
+                sw.add_scalar('Loss/G', G_loss, total_steps)
+                sw.add_scalar('Loss/D', D_loss, total_steps)
+                sw.add_scalar('Loss/gan', gan_loss, total_steps)
+                sw.add_scalar('Loss/vgg', vgg_loss, total_steps)
+                sw.add_scalar('Loss/df', df_loss, total_steps)
+                sw.add_scalar('Loss/ll', ll_loss, total_steps)
 
-            sw.add_scalar('LR/G', get_lr(G_optimizer), total_steps)
-            sw.add_scalar('LR/D', get_lr(D_optimizer), total_steps)
+                sw.add_scalar('LR/G', get_lr(G_optimizer), total_steps)
+                sw.add_scalar('LR/D', get_lr(D_optimizer), total_steps)
 
-            sw.add_image('img/real', imgs[0].cpu(), step)
-            sw.add_image('img/fake', fakes[0].cpu(), step)
-            sw.add_image('visual/label', maps[0].cpu(), step)
+                sw.add_image('img/real', imgs[0].cpu(), step)
+                sw.add_image('img/fake', fakes[0].cpu(), step)
+                sw.add_image('visual/label', maps[0].cpu(), step)
 
         D_scheduler.step(epoch)
         G_scheduler.step(epoch)

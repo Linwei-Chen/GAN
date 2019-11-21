@@ -24,6 +24,19 @@ def get_DFLoss(args=None):
     return DiscriminatorFeaturesLoss()
 
 
+def get_low_level_loss(args, low_level_loss=None):
+    if low_level_loss is None:
+        low_level_loss =args.low_level_loss
+    if  low_level_loss== 'L1':
+        L = nn.DataParallel(nn.L1Loss())
+    elif low_level_loss== 'L2':
+        L = nn.DataParallel(nn.MSELoss())
+    elif low_level_loss == 'smoothL1':
+        L = nn.DataParallel(nn.SmoothL1Loss())
+    else:
+        raise NotImplementedError
+
+
 class GANLoss(nn.Module):
     def __init__(self, use_lsgan=True, target_real_label=1.0, target_fake_label=0.0,
                  tensor=torch.FloatTensor):
