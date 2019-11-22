@@ -171,7 +171,7 @@ def train(args, get_dataloader_func=get_pix2pix_maps_dataloader):
 
         D_scheduler.step(epoch)
         G_scheduler.step(epoch)
-        if epoch % 10 == 0:
+        if epoch % 10 == 0 or epoch == args.epochs:
             fid = eval(args, model=G, data_loader=get_dataloader_func(args, train=False))
             logger.log(key='FID', data=fid)
             if fid > logger.get_max(key='FID'):

@@ -81,7 +81,9 @@ class Logger:
         for k in self.state:
             temp_len = len(self.state[k])
             if temp_len < ml:
-                self.state[k] = self.state[k] + [0.]* (ml-temp_len)
+                pad = [0.] * (ml-temp_len) if temp_len == 0 else [self.state[k][-1]] * (ml-temp_len)
+
+                self.state[k] = self.state[k] + pad
 
     def save_log(self):
         # save data as csv

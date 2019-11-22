@@ -390,6 +390,7 @@ if __name__ == '__main__':
     args = config()
     # model = get_G(args, 21)
     model = get_D(args, 21)
+    model = get_G(args, 21)
     x = torch.rand(3, 21, 32, 32)
     y = model(x)
     # print(y)
